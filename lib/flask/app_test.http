@@ -1,0 +1,74 @@
+@hostname=165.227.117.48
+
+###
+
+POST http://{{hostname}}/register
+Content-type: application/json
+
+{
+    "username": "jayg1",
+    "password": "jaygohel"
+}
+
+###
+
+# @name login
+POST http://{{hostname}}/login
+Content-type: application/json
+
+{
+    "username": "jaygg",
+    "password": "jaygohel"
+}
+
+###
+
+# Logout Request
+
+# POST http://{{hostname}}:{{port}}/logout
+# Content-Type: application/json
+
+# {
+#   "user_id": 7
+# }
+
+###
+
+@token = {{login.response.body.$.access_token}}
+GET http://{{hostname}}/games
+Authorization: Bearer {{token}}
+
+###
+
+# @name createGame
+@token = {{login.response.body.$.access_token}}
+POST http://{{hostname}}/games
+Content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "ships": ["A1", "B2", "C3", "D4", "E5"],
+    "ai": "oneship"
+}
+
+###
+
+@token = {{login.response.body.$.access_token}}
+GET http://{{hostname}}/games/6203
+Authorization: Bearer {{token}}
+
+###
+
+@token = {{login.response.body.$.access_token}}
+DELETE  http://{{hostname}}/games/6206
+Authorization: Bearer {{token}}
+
+###
+@token = {{login.response.body.$.access_token}}
+PUT http://{{hostname}}/games/2355
+Content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "shot": "A2"
+}
