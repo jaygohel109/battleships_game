@@ -13,7 +13,7 @@ Embark on a strategic journey with the Battleship Commander app, a dynamic inter
 
 ## Detailed Command Brief
 
-### Strategic Login and Registration
+### Strategic Login and Registration 
 
 Securely enlist or log in, setting the stage for your naval conquests. Post-registration, your credentials are your key to the operational command center, with session tokens encrypted for your eyes only, ensuring re-authentication once they expire.
 
